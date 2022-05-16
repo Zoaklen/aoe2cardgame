@@ -1,0 +1,212 @@
+#pagecontainer
+{
+  width: 100vw;
+  height: 100vh;
+  align-items: center;
+  justify-content: center;
+  display: flex;
+  flex-direction: column;
+}
+
+body
+{
+  overflow: hidden;
+  color: white;
+  text-shadow: 1px 1px 0 black;
+}
+
+#actions
+{
+  display: flex;
+  flex-direction: row;
+}
+
+#myhand
+{
+  display: flex;
+  position: absolute;
+  bottom: 0px;
+  left: 0px;
+  width: 100%;
+  height: 400px;
+  background-color: cyan;
+  transition: 1s;
+  overflow-x: auto;
+  flex-direction: row;
+  z-index: 2;
+  gap: 10px;
+}
+
+#myhand.hiddenhand
+{
+  transition: 1s;
+  bottom: -100%;
+}
+
+#gameboard
+{
+  width: 90%;
+  height: 90%;
+  background-color: red;
+  align-items: center;
+  justify-content: center;
+  display: flex;
+}
+
+#checkingcard
+{
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  right: -300px;
+  width: 300px;
+  height: 100%;
+  background-color: #303030;
+  transition: 1s;
+}
+
+#checkingcard.active
+{
+  right: 0px;
+  transition: 1s;
+}
+
+#boardcontainer
+{
+  --internal-padding: 20px;
+  width: calc(100% - var(--internal-padding));
+  height: calc(100% - var(--internal-padding));
+  background-color: yellow;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.boardrow
+{
+  flex: 1 0 1;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: center;
+  width: 100%;
+}
+
+.tilebox
+{
+  width: 80px;
+  height: 80px;
+  margin: 10px;
+  background-color: green;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  border: 5px solid transparent;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.tilebox .name
+{
+  margin-bottom: auto;
+}
+
+.tilebox .health
+{
+  margin-top: auto;
+
+}
+
+.tilebox:hover
+{
+  border-color: black;
+}
+
+.cardcontainer
+{
+  aspect-ratio: 3 / 4;
+  height: 300px;
+  background-color: #000000;
+  display: flex;
+  flex-direction: column;
+  margin: 32px auto;
+}
+
+.cardheader
+{
+  background-color: #808080;
+  height: 10%;
+  text-align: center;
+  display: flex;
+}
+
+.cardcontainer.unit .cardheader
+{
+  background-color: #008000;
+}
+
+.cardcontainer.upgrade .cardheader
+{
+  background-color: #008080;
+}
+
+.cardheadertext
+{
+  margin-bottom: auto;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 4px;
+}
+
+.cardimage
+{
+  aspect-ratio: 1 / 1;
+  height: 50%;
+  background-color: black;
+  align-self: center;
+  position: relative;
+  text-align: center;
+}
+
+.carddescription
+{
+  height: 30%;
+  background-color: #909090;
+  padding: 8px;
+}
+
+.cardcontainer.unit .carddescription
+{
+    background-color: #009000;
+}
+
+.cardcontainer.upgrade .carddescription
+{
+    background-color: #009090;
+}
+
+.cardfooter
+{
+  margin-top: auto;
+  background-color: #808080;
+  height: 10%;
+  width: 100%;
+  display: flex;
+}
+
+.cardcontainer.unit .cardfooter
+{
+  background-color: #008000;
+}
+
+.cardcontainer.upgrade .cardfooter
+{
+  background-color: #008080;
+}
+
+.cardfootertext
+{
+  margin-top: auto;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 4px;
+}

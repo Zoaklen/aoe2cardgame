@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="cssreset.css">
+    <script type="text/javascript">
+    </script>
+    <script src="dataset.js" charset="utf-8"></script>
+    <script src="utils.js" charset="utf-8"></script>
+    <script src="events.js" charset="utf-8"></script>
+    <script src="gamedata.js" charset="utf-8"></script>
+    <script src="inputhandler.js" charset="utf-8"></script>
+    <script src="graphicshandler.js" charset="utf-8"></script>
+    <title>Age of Empires II Board Game</title>
+  </head>
+  <body onload="startgame()">
+    <div id="pagecontainer">
+      <div id="actions">
+        <button type="button" name="button" onclick="onNewTurn()">Próximo Turno</button>
+        <button type="button" name="button" onclick="toggleHand()">Alternar Cartas</button>
+      </div>
+      <div id="gameboard">
+        <div id="boardcontainer">
+        </div>
+      </div>
+      <div id="myhand">
+
+      </div>
+      <div id="checkingcard">
+        
+      </div>
+    </div>
+  </body>
+</html>
