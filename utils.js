@@ -279,14 +279,31 @@ function getUnitTarget(unit)
     range = unit.rng;
 
   var validTargets = [];
-  outer:
-  for(var i = Math.max(unit.x-range, 0);i <= Math.min(unit.x+range, boardWidth-1);i++)
+  if(unit.team == 0)
   {
-    for(var j = 0;j < boardHeight;j++)
+    outer:
+    for(var i = Math.max(unit.x-range, 0);i <= Math.min(unit.x+range, boardWidth-1);i++)
     {
-      if(gameboard[i][j] != undefined && gameboard[i][j].team != unit.team)
+      for(var j = 0;j < boardHeight;j++)
       {
-        validTargets.push(gameboard[i][j]);
+        if(gameboard[i][j] != undefined && gameboard[i][j].team != unit.team && isValidTarget(unit, gameboard[i][j]))
+        {
+          validTargets.push(gameboard[i][j]);
+        }
+      }
+    }
+  }
+  else
+  {
+    outer:
+    for(var i = Math.min(unit.x+range, boardWidth-1);i >= Math.max(unit.x-range, 0);i--)
+    {
+      for(var j = 0;j < boardHeight;j++)
+      {
+        if(gameboard[i][j] != undefined && gameboard[i][j].team != unit.team && isValidTarget(unit, gameboard[i][j]))
+        {
+          validTargets.push(gameboard[i][j]);
+        }
       }
     }
   }
@@ -294,6 +311,7 @@ function getUnitTarget(unit)
     var damageA = getUnitDamage(unit, a);
     var damageB = getUnitDamage(unit, b);
     var h = damageA - damageB;
+    if(a.type == "building")
     if(a.type == "building")
       h -= 50;
     if(b.type == "building")
@@ -312,11 +330,33 @@ function getUnitTarget(unit)
     return validTargets[0];
 }
 
+function isValidTarget(attacker, victim)
+{
+  if(attacker.dataname == "ram" && victim.type != "building")
+    return false;
+
+  if(attacker.dataname == "trebuchet" && victim.type != "building" && !victim.types.includes("siege"))
+    return false;
+
+  return true;
+}
+
 function generateValidCard(player)
 {
   var array = allcardsarray.filter((x) => x.type != "upgrade" || (!playerHaveUpgrade(player, x.dataname) && !playerHaveCard(player, x.dataname)));
   var card = array[getRandomInt(0, array.length)];
   return card;
+}
+
+function deleteUnit(x, y)
+{
+  gameboard[x][y] = null;
+  if(selectedTileX != -1)
+  {
+    document.getElementById('checkingcard').innerHTML = "";
+    setCheckingCard(null);
+  }
+  updateBoard();
 }
 
 function playerHaveCard(player, cardName)

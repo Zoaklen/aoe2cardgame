@@ -94,6 +94,15 @@ function setCheckingCard(obj)
       }
       div.appendChild(select);
     }
+    if(obj.team == 0)
+    {
+      div.appendChild(document.createElement("br"));
+      var delbutton = document.createElement("button");
+      delbutton.setAttribute("onclick", "deleteUnit("+obj.x+", "+obj.y+")");
+      delbutton.innerHTML = "Delete";
+      delbutton.type = "button";
+      div.appendChild(delbutton);
+    }
   }
   else
   {

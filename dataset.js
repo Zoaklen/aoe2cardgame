@@ -13,6 +13,7 @@ var unitCards = {
               marm: 0,
               parm: 0,
               facility: "towncenter",
+              builder: {building: {}, turns: 0},
               types: [],
               image: "https://static.wikia.nocookie.net/ageofempires/images/6/68/MaleVillDE.jpg"
             },
@@ -280,7 +281,7 @@ var upgradeCards = {
               time: 2,
               age: 2,
               image: "https://static.wikia.nocookie.net/ageofempires/images/b/b2/PikemanUpDE.png",
-              upgrades: [{type: "spearman", name: "Piqueiro", atk: 1, pv: 1, bonusdamage:[{type: "mounted", quant: 2}], image: "https://static.wikia.nocookie.net/ageofempires/images/a/a6/Aoe2-infantry-2-pikeman.png"}]
+              upgrades: [{type: "spearman", name: "Piqueiro", description: "Causa +6 de dano contra unidades do tipo Montado", atk: 1, pv: 1, bonusdamage:[{type: "mounted", quant: 2}], image: "https://static.wikia.nocookie.net/ageofempires/images/a/a6/Aoe2-infantry-2-pikeman.png"}]
             },
   "halberdier": {
               name: "Alabardeiro",
@@ -290,7 +291,7 @@ var upgradeCards = {
               age: 3,
               req: "pikeman",
               image: "https://static.wikia.nocookie.net/ageofempires/images/8/8d/HalberdierDE.png",
-              upgrades: [{type: "spearman", name: "Alabardeiro", atk: 1, pv: 2, bonusdamage:[{type: "mounted", quant: 4}], image: "https://static.wikia.nocookie.net/ageofempires/images/a/aa/Halberdier_aoe2DE.png"}]
+              upgrades: [{type: "spearman", name: "Alabardeiro", description: "Causa +10 de dano contra unidades do tipo Montado", atk: 1, pv: 2, bonusdamage:[{type: "mounted", quant: 4}], image: "https://static.wikia.nocookie.net/ageofempires/images/a/aa/Halberdier_aoe2DE.png"}]
             },
   "crossbowman": {
               name: "Besteiro",

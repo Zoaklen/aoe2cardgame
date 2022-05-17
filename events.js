@@ -108,6 +108,7 @@ function tryUseCard(card, x, y)
     if(tile != undefined)
       return;
 
+    
     console.log(card, x, y, tile);
     placeBuilding(card.dataname, 0, x, y);
     destroyHandCard(0, usingCard);
